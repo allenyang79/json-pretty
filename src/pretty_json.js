@@ -6,7 +6,6 @@
 		jq.src = url;
 		jq.onload=function(){
 			loaded++;
-			console.log(loaded,total);
 			if(loaded >= total){
 				onInjectLoad();
 			}

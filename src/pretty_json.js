@@ -7,7 +7,9 @@
 		jq.onload=function(){
 			loaded++;
 			if(loaded >= total){
-				onInjectLoad();
+				setTimeout(function(){
+					onInjectLoad();
+				},100);
 			}
 		}
 		document.getElementsByTagName('head')[0].appendChild(jq);
@@ -27,8 +29,7 @@
 	load(pt+"//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js")
 	var onInjectLoad = function(){
 		var data  = JSON.parse(document.body.innerHTML);
-		window.__json = data;
-		console.dir(window.__json);
 		document.body.innerHTML = "<pre>"+JSON.stringify(data,null,"\t")+"</pre>";
+		console.dir(data);
 	}
 })();

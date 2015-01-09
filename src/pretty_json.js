@@ -1,6 +1,7 @@
 (function(){
 	loaded = 0
 	total = 0;
+    
 	function load(url){
 		var jq = document.createElement('script');
 		jq.src = url;
@@ -27,8 +28,11 @@
 	load(pt+"//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js")
 	load(pt+"//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.5.3/numeral.min.js")
 	load(pt+"//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js")
+    load(pt+"//cdnjs.cloudflare.com/ajax/libs/async/0.9.0/async.js")
+
 	var onInjectLoad = function(){
-		var data  = JSON.parse(document.body.innerHTML);
+		//console.log("onInjectLoad");
+		var data  = JSON.parse(document.body.innerText);
 		document.body.innerHTML = "<pre>"+JSON.stringify(data,null,"\t")+"</pre>";
 		console.dir(data);
 	}
